@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Table, Button } from 'reactstrap';
+import APIURL from '../../helpers/environment'
 
 const PlantTable = (props) => {
 console.log(props)
 
     const deletePlant = (plant) => {
-        fetch(`http://localhost:3000/api/trefle/${plant.id}`, {
+        fetch(`${APIURL}/api/trefle/${plant.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',

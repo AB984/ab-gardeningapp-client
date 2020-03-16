@@ -7,6 +7,7 @@ import Plantbar from './Plantbar';
 import Splash from './Splash';
 import PlantIndex from '../plants/PlantIndex';
 import NotFoundPage from './NotFoundPage';
+import APIURL from '../../helpers/environment'
 
 
 const Home = (props) => {
@@ -30,7 +31,7 @@ function addPlant(plant) {
 
 function handleAdd(plant) {
     console.log(`HOME plant: `, plant)
-    fetch('http://localhost:3000/api/trefle', {
+    fetch(`${APIURL}/api/trefle`, {
         method: 'POST',
         body: JSON.stringify( {scientific_name: plant.scientific_name, common_name: plant.common_name, images: plant.images, specifications: specifications}),
         headers: new Headers({

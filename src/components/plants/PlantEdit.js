@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ModalHeader, FormGroup, Button, Form, Label, Modal, ModalBody, Input } from 'reactstrap';
+import APIURL from '../../helpers/environment'
 
 const PlantEdit = (props) => {
     const [ scientificName, setScientificName] = useState(props.plantToUpdate.scientific_name);
@@ -10,7 +11,7 @@ const PlantEdit = (props) => {
 
     const plantUpdate = (event, plant) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/api/trefle/${props.plantToUpdate.id}`, {
+        fetch(`${APIURL}/api/trefle/${props.plantToUpdate.id}`, {
             method: 'PUT',
             body: JSON.stringify({scientific_name: scientificName, common_name: commonName, images: images, specifications: specifications}),
             headers: new Headers({

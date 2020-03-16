@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Footer from "./Footer";
 import Home from "./Home";
 import PlantIndex from '../plants/PlantIndex';
+import APIURL from '../../helpers/environment'
 
 const Splash = (props) => {
     console.log(`SPLASH PROPS: `, props)
@@ -10,7 +11,7 @@ const Splash = (props) => {
 
 
     const fetchPlants = () => {
-        fetch('http://localhost:3000/api/trefleauth', {
+        fetch(`${APIURL}/api/trefleauth`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
