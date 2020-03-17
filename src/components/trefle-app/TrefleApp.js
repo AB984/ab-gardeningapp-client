@@ -15,7 +15,7 @@ const TrefleApp = (props) => {
     const [ pageNumber, setPageNumber ] = useState(0);
 
     console.log(`TREFLEAPP: `, props)
-    console.log(result);
+    console.log(`TREFLEAPP RESULT PROP: `, result);
 
     // const fetcher = () => {
     //     console.log("fetching")
@@ -96,8 +96,12 @@ const TrefleApp = (props) => {
                     required/>
                     <br />
                     <button>Submit Search</button>
+                    <hr />
+                    <br />
                 </form>
-                {props.plants.length > 0 ? (<TrefleAppDisplay  result={props.plants} addPlant={props.addPlant} changePageNumber={changePageNumber} />) : null}
+                <br />
+                {search === "" ? null : (<div class="spinner-grow" role="status"><span class="sr-only">Loading...</span></div>)}
+                {props.plants.length === 0 ?  null : (<TrefleAppDisplay  result={props.plants} changePageNumber={changePageNumber} /> )}
                     
             </div>
         </div>

@@ -7,34 +7,34 @@ const Splash = (props) => {
     console.log(`SPLASH PROPS: `, props)
 
     
-    const [ scientificName, setScientificName] = useState('');
-    const [ commonName, setCommonName ] = useState('')
-    const [ images, setImages ] = useState([]);
-    const [ specifications, setSpecifications ] = useState('');
+    // const [ scientificName, setScientificName] = useState('');
+    // const [ commonName, setCommonName ] = useState('')
+    // const [ images, setImages ] = useState([]);
+    // const [ specifications, setSpecifications ] = useState('');
 
-    function addPlant(plant) {
-        handleAdd(plant);
+    // function addPlant(plant) {
+    //     handleAdd(plant);
         
-    }
+    // }
     
-    function handleAdd(plant) {
-        console.log(`HOME plant: `, plant)
-        fetch(`${APIURL}/api/trefle`, {
-            method: 'POST',
-            body: JSON.stringify( {scientific_name: plant.scientific_name, common_name: plant.common_name, images: plant.images, specifications: specifications}),
-            headers: new Headers({
-                'Content-Type': 'application/json',
-                'Authorization': props.token
-            })
-        }).then ( (res) => res.json())
-        .then ( (logData) => {
-            console.log(`HOME logData: `, logData);
-            setScientificName(logData.scientific_name);
-            setCommonName(logData.common_name);
-            setImages(logData.images);
-            setSpecifications(logData.specifications);
-            // props.fetchPlants();
-        })}
+    // function handleAdd(plant) {
+    //     console.log(`HOME plant: `, plant)
+    //     fetch(`${APIURL}/api/trefle`, {
+    //         method: 'POST',
+    //         body: JSON.stringify( {scientific_name: plant.scientific_name, common_name: plant.common_name, images: plant.images, specifications: specifications}),
+    //         headers: new Headers({
+    //             'Content-Type': 'application/json',
+    //             'Authorization': props.token
+    //         })
+    //     }).then ( (res) => res.json())
+    //     .then ( (logData) => {
+    //         console.log(`HOME logData: `, logData);
+    //         setScientificName(logData.scientific_name);
+    //         setCommonName(logData.common_name);
+    //         setImages(logData.images);
+    //         setSpecifications(logData.specifications);
+    //         // props.fetchPlants();
+    //     })}
     
 
 

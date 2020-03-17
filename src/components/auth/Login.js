@@ -21,17 +21,31 @@ const Login = props => {
         })
     }
 
+    // function validateForm() {
+    //     var x = document.forms["loginForm"]["email"].value;
+    //     if (x == "") {
+    //         alert("Email must be filled out");
+    //         return false;
+    //     }
+    //     var y = document.forms["loginForm"]["password"].value;
+    //     if (y == "") {
+    //         alert("Password must be filled out");
+    //         return false;
+    //     }
+    // }
+
     return (
         <div>
             <h1>Log in with Existing Account</h1>
-            <Form onSubmit={handleSubmit}>
+            <Form name="loginForm" onSubmit={handleSubmit} >
                 <FormGroup>
                     <Label htmlFor="email">Email</Label>
-                    <Input onChange={e => setEmail(e.target.value)} name="email" value={email} />
+                    <Input type="email" onChange={e => setEmail(e.target.value)} name="email" value={email} />
+                    { !email ? <p>email field is required</p> : null}
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password">Password</Label>
-                    <Input onChange={ e => setPassword(e.target.value)} name="password" value={password} />
+                    <Input type="password" onChange={ e => setPassword(e.target.value)} name="password" value={password} />
                 </FormGroup>
 
                 <Button type="submit">Re-enter the Garden</Button>

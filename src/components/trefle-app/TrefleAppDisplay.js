@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import APIURL from '../../helpers/environment'
+import AltImg from '../assets/alt-plant.jpg'
 
 
 const TrefleAppDisplay = (props) => {
 
 console.log(`TrefleAppDisplay: `, props)
-console.log(`TrefleAppDisplay: `, props.plants.common_name)
+// console.log(`TrefleAppDisplay: `, props.result.plants[0].common_name)
 
 const Flex = styled.div`
   display: flex;
@@ -14,9 +16,10 @@ const Flex = styled.div`
 
 const Plant = styled.div`
   margin: 5px;
+  top: 7px;
   width: 300px;
-  height: 400px;
-  border-radius: 5px;
+  height: 200px;
+  border-radius: 9px;
   justify-content: space-evenly;
   text-align: center;
   background: #027a93;
@@ -26,7 +29,7 @@ const Thumbnail = styled.img`
   width: calc(100% - 20px);
   height: calc(70% - 10px);
   margin: 5px 5px 0 5px;
-  border-radius: 5px;
+  border-radius: 9px;
 `;
 
 const ScientificName = styled.h5`
@@ -44,12 +47,41 @@ const Button = styled.button`
   margin: 0px 0 0 0;
   color: #fed701;
   background-color: #027a93;
-  border-radius: 5px;
+  border-radius: 9px;
   border: 2px inset #191919;
+  posistion: relative;
 `;
 
 
-{/* <button onClick={FUNCTION TO ADD TO PLANT TABLE}>ADD To The GARDEN</button> */}
+const [ scientificName, setScientificName] = useState('');
+const [ commonName, setCommonName ] = useState('')
+const [ images, setImages ] = useState([]);
+const [ specifications, setSpecifications ] = useState('');
+
+// function addPlant(plant) {
+//     handleAdd(plant);
+    
+// }
+
+function handleAdd(plant) {
+    console.log(`HOME plant: `, plant)
+    fetch(`${APIURL}/api/trefle`, {
+        method: 'POST',
+        body: JSON.stringify( {scientific_name: plant.scientific_name, common_name: plant.common_name, specifications: specifications}),
+        // images: plant.images,
+        headers: new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': props.token
+        })
+    }).then ( console.log(`this is TAD: handlePlant`), (res) => res.json())
+    .then ( (logData) => {
+        console.log(`HOME logData: `, logData);
+        setScientificName(logData.scientific_name);
+        setCommonName(logData.common_name);
+        // setImages(logData.images);
+        setSpecifications(logData.specifications);
+        // props.fetchPlants();
+    })}
 
 //       <div className="main">
 //           <div className="mainDiv">
@@ -64,18 +96,20 @@ const Button = styled.button`
   return (
     <>
     <Flex>
-      {props.plants.map((plant, key) => {
+      {props.result.plants.map((plant, key) => {
       // if(plant.common_name !== '' && plant.complete_data === true)
       return (
         
           <div>
             <div>
               <Plant key={key}>
-              {plant.images.length === 0 ? (<Thumbnail src="../assets/alt-plant.jpg"/>) : (<Thumbnail src={plant.images[0].url} />)}
+              {plant.images.length === 0 ? (<Thumbnail src={AltImg}/>) : (<Thumbnail src={plant.images[0].url} />)}
               <ScientificName>{plant.scientific_name}</ScientificName>
               <CommonName >{plant.common_name}</CommonName>
-              <Button onClick={() => props.addPlant(plant)}>ADD to GARDEN</Button>
+              <Button onClick={() => handleAdd(plant)}>ADD to GARDEN</Button>
+              <br />
               </Plant>
+              <br />
             </div>
             <br />
           </div>

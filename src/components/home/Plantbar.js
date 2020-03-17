@@ -55,14 +55,13 @@ const Plantbar = props => {
                     </Nav>
                 </Collapse>
             </Navbar>
-            <div>
             <Switch>
-            <Route exact path="/"><Splash token={props.token} fetchPlants={props.fetchPlants}/></Route>
-            <Route exact path="/plantindex"><PlantIndex plants={props.plants} token={props.token} fetchPlants={props.fetchPlants}/></Route>
+            <Route exact path="/"><Splash token={props.token} /></Route>
+            <Route exact path="/plantindex"><PlantIndex plants={props.plants} token={props.token} /></Route>
+            {/* fetchPlants={props.fetchPlants} */}
             <Route exact path="/trefleapp"><TrefleApp token={props.token} fetchPlants={props.fetchPlants} plants={props.plants}/></Route>
             <Route component={NotFoundPage} />
             </Switch>
-            </div>
         </Router> 
         </>
     )

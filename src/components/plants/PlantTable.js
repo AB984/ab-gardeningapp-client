@@ -3,7 +3,7 @@ import { Table, Button } from 'reactstrap';
 import APIURL from '../../helpers/environment'
 
 const PlantTable = (props) => {
-console.log(props)
+console.log(`PlantTable: `, props)
 
     const deletePlant = (plant) => {
         fetch(`${APIURL}/api/trefle/${plant.id}`, {

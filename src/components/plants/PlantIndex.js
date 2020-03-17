@@ -3,13 +3,13 @@ import { Container, Row, Col } from 'reactstrap';
 // import PlantCreate from './PlantCreate';
 import PlantTable from './PlantTable';
 import PlantEdit from './PlantEdit';
-// import TrefleApp from '../trefle-app/TrefleApp';
 
 const PlantIndex = (props) => {
-    const [ plants, setPlants ] = useState([]);
+    const [ plants, setPlants ] = useState(props.plants);
     const [ updateActive, setUpdateActive ] = useState(false);
     const [ plantToUpdate, setPlantToUpdate ] = useState({});
 
+    // setPlants(props.plants);
 
     const editUpdatePlant = (plant) => {
         setPlantToUpdate(plant);
@@ -23,24 +23,23 @@ const PlantIndex = (props) => {
         setUpdateActive(false);
     }
 
-    useEffect( () => {
-        props.fetchPlants();
-    }, [])
+    // useEffect( () => {
+    //     props.fetchPlants();
+    // }, [])
     return (
         <Container>
             <Row>
                 <Col md="3">
-                    {/* <TrefleApp fetchPlants={fetchPlants} token={props.token} /> */}
                 </Col>
                 <Col md="9">
                 <PlantTable 
-                plants={props.plants} 
+                plants={plants} 
                 editUpdatePlant={editUpdatePlant}
                 updateOn={updateOn}
-                fetchPlants={props.fetchPlants} 
+                // fetchPlants={props.fetchPlants} 
                 token={props.token} />
                 </Col>
-                {updateActive ? <PlantEdit plantToUpdate={plantToUpdate} updateOff={updateOff} token={props.token} fetchPlants={props.fetchPlants} /> : <></> }
+                {updateActive ? <PlantEdit plantToUpdate={plantToUpdate} updateOff={updateOff} token={props.token} /> : <></> }
             </Row>
         </Container>
     )
