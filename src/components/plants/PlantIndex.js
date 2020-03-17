@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import PlantCreate from './PlantCreate';
+// import PlantCreate from './PlantCreate';
 import PlantTable from './PlantTable';
 import PlantEdit from './PlantEdit';
-import TrefleApp from '../trefle-app/TrefleApp';
+// import TrefleApp from '../trefle-app/TrefleApp';
 
 const PlantIndex = (props) => {
     const [ plants, setPlants ] = useState([]);
@@ -34,7 +34,7 @@ const PlantIndex = (props) => {
                 </Col>
                 <Col md="9">
                 <PlantTable 
-                plants={plants} 
+                plants={props.plants} 
                 editUpdatePlant={editUpdatePlant}
                 updateOn={updateOn}
                 fetchPlants={props.fetchPlants} 

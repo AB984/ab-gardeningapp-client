@@ -46,6 +46,8 @@ const TrefleApp = (props) => {
         event.preventDefault()
         setPageNumber(0);
         props.fetchPlants();
+        // setResult(props.plants);
+
     }
 
     const changePageNumber = (event, direction) => {
@@ -79,7 +81,7 @@ const TrefleApp = (props) => {
         if (search !== ''){
             props.fetchPlants();
         }  
-    }, [pageNumber, search])
+    }, [pageNumber])
 
     return (
         <>
@@ -90,13 +92,12 @@ const TrefleApp = (props) => {
                     <input 
                     type="text"
                     name="search"
-                    // onChange={e => {}}
+                    onChange={e => {setSearch(e.target.value)}}
                     required/>
                     <br />
-                    <button onClick={e => {setSearch(e.target.value);
-                        console.log(e.target);}}>Submit Search</button>
+                    <button>Submit Search</button>
                 </form>
-                {result.length > 0 ? (<TrefleAppDisplay  result={result} addPlant={props.addPlant} changePageNumber={changePageNumber} />) : null}
+                {props.plants.length > 0 ? (<TrefleAppDisplay  result={props.plants} addPlant={props.addPlant} changePageNumber={changePageNumber} />) : null}
                     
             </div>
         </div>

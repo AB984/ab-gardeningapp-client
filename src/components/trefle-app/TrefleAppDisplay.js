@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const TrefleAppDisplay = (props) => {
 
 console.log(`TrefleAppDisplay: `, props)
-console.log(`TrefleAppDisplay: `, props.commonName)
+console.log(`TrefleAppDisplay: `, props.plants.common_name)
 
 const Flex = styled.div`
   display: flex;
@@ -64,7 +64,7 @@ const Button = styled.button`
   return (
     <>
     <Flex>
-      {props.result.map((plant, key) => {
+      {props.plants.map((plant, key) => {
       // if(plant.common_name !== '' && plant.complete_data === true)
       return (
         
