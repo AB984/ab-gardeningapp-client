@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import Footer from './Footer'
-import TrefleApp from '../trefle-app/TrefleApp'
 import styled from 'styled-components';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Plantbar from './Plantbar';
-import Splash from './Splash';
-import PlantIndex from '../plants/PlantIndex';
-import NotFoundPage from './NotFoundPage';
 import APIURL from '../../helpers/environment'
 
 

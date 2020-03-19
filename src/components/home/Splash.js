@@ -4,14 +4,20 @@ import Phases from '../assets/header-moon-phases.jpeg';
 
 const Moon = styled.img`
     width: 100vw;
-    height: auto;
+    height: 33vh;
     display: block;
     margin: 0 auto;
+    overflow: scroll;
+    object-fit: cover;
+    box-shadow:0px 9px 19px 0px rgba(0,0,0,0.95);
 `;
 
 const Background = styled.div`
-    height: 100vh;
+    height: 110vh;
     width: 100vw;
+    flex-grow: 1;
+    overflow: scroll;
+
     background: linear-gradient(180deg, rgba(215, 189, 148, 0) 0%, rgba(215, 189, 148, 0.96) 100%);
     // background: lineear-gradient(to bottom, transparent, #D7BD94, #AC900D);
 `;
@@ -24,12 +30,14 @@ const Splash = (props) => {
     return (
         <Background>
             <Moon src={Phases} alt="moon" />
-            <h1 className='appTitle' style={{fontFamily: 'Caudex', textAlign: 'center', fontSize: '50px', border: '2px solid white', marginTop: '-2em'}}>Welcome to the Garden</h1>
+            <h1 className='appTitle' style={{fontFamily: 'Caudex', flexGrow: '1', fontSize: '50px', color: '#AC900D', marginTop: '-1.7em', textShadow: '.05em .1em .1em #6B6B6B'}}>Welcome to the Garden</h1>
             <br />
             <br />
-            <h3 style={{textAlign: 'center', marginTop: '3em', fontFamily: 'Fira Sans'}}>We are glad you're here. </h3>
-            <h3 style={{textAlign: 'center', marginTop: '3em', fontFamily: 'Fira Sans Condensed'}}>In this incredible application, you can create a customized table of your garden contents and keep track of tasks in time with the stages of the moon. </h3>
-            <h3 style={{textAlign: 'center', marginTop: '3em', fontFamily: 'Fira Sans Extra Condensed'}}>Click on Find Plants to get started! </h3>
+            <hr style={{backgroundColor: '#FED701'}}/>
+            <hr style={{backgroundColor: '#FED701'}}/>
+            <h3 style={{textAlign: 'center', marginTop: '3em'}}>We are glad you're here. </h3>
+            <h3 style={{textAlign: 'center', marginTop: '3em'}}>In this incredible application, you can create a customized table of your garden contents and keep track of tasks in time with the stages of the moon. </h3>
+            <h3 style={{textAlign: 'center', marginTop: '3em'}}>Click on Find Plants to get started! </h3>
         </Background>
     )
 }

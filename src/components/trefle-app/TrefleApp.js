@@ -5,6 +5,8 @@ import styled from 'styled-components';
 const Background = styled.div`
     height: 135vh;
     width: 100vw;
+    overflow: scroll;
+    justify-content: center;
     background: linear-gradient(180deg, rgba(215, 189, 148, 0) 0%, rgba(215, 189, 148, 0.96) 100%);
     // background: lineear-gradient(to bottom, transparent, #D7BD94, #AC900D);
 `;
@@ -74,7 +76,8 @@ const TrefleApp = (props) => {
                     required/>
                     <br />
                     <button style={{marginTop: '2em', borderRadius: '9px', backgroundColor: '#027A93', opacity: '0.7', color: '#E5E5E5'}}>Submit Search</button>
-                    <hr />
+                    <hr style={{backgroundColor: '#FED701'}}/>
+                    <hr style={{backgroundColor: '#FED701'}}/>
                     <br />
                 </form>
                 <br />

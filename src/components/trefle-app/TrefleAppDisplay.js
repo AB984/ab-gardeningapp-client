@@ -10,10 +10,11 @@ console.log(`TrefleAppDisplay: `, props)
 // console.log(`TrefleAppDisplay: `, props.result.plants[0].common_name)
 
 const Flex = styled.div`
-  display: flex;
+  display: inline-flex;
+  justify-content: center;
   flex-wrap: wrap;
   flex: 1;
-  padding-left: 4em;
+  // padding: 2em 0;
   margin: 0 auto
 `;
 
@@ -127,8 +128,8 @@ const Button = styled.button`
       })}
     </Flex>
     <div>
-      <button onClick={e => props.changePageNumber(e, "down")}>Previous 30</button>
-      <button onClick={e => props.changePageNumber(e, "up")}>Next 30</button>
+      <button style={{borderRadius: '9px', backgroundColor: '#027A93', color: '#E5E5E5', opacity: '0.85', fontFamily: 'Roboto, sans-serif'}} onClick={e => props.changePageNumber(e, "down")}>Previous 30</button>
+      <button style={{borderRadius: '9px', backgroundColor: '#027A93', color: '#E5E5E5', opacity: '0.85', fontFamily: 'Roboto, sans-serif'}} onClick={e => props.changePageNumber(e, "up")}>Next 30</button>
     </div>
     </>
   )

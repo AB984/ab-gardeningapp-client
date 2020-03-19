@@ -36,19 +36,41 @@ const Login = props => {
 
     return (
         <div>
-            <h1>Log in with Existing Account</h1>
+            <h1 style={{color: '#6B6B6B'}}>Existing Accounts</h1>
+
+            {/* <AvForm>
+                <AvField name="email" label="Email" type="email" />
+                <AvField name="emailProp" label="Email (validate prop)" type="text" validate={{email: true}} />
+                
+                <Button color="primary">Submit</Button>
+            </AvForm> */}
+
             <Form name="loginForm" onSubmit={handleSubmit} >
                 <FormGroup>
                     <Label htmlFor="email">Email</Label>
-                    <Input type="email" onChange={e => setEmail(e.target.value)} name="email" value={email} />
-                    { !email ? <p>email field is required</p> : null}
+                    <Input 
+                        type="email" 
+                        onChange={e => setEmail(e.target.value)} 
+                        name="email" 
+                        required
+                        value={email} />
+                    { !email ? <p>email field is required</p> : null }
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password">Password</Label>
-                    <Input type="password" onChange={ e => setPassword(e.target.value)} name="password" value={password} />
+                    <Input 
+                    type="password" 
+                    onChange={ e => setPassword(e.target.value)} 
+                    name="password"
+                    required
+                    value={password} />
+                    { password.length >= 4 || password.length < 1? null : <p>password must be at least 5 characters</p> }
                 </FormGroup>
 
-                <Button type="submit">Re-enter the Garden</Button>
+                <Button 
+                type="submit"
+                style={{borderRadius: '9px', backgroundColor: '#027A93', opacity: '0.85', color: '#E5E5E5'}}
+                >Re-enter the Garden</Button>
             </Form>
         </div>
     )

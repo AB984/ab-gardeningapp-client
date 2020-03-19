@@ -10,6 +10,8 @@ import Air from '../assets/air-element.jpg';
 const Background = styled.div`
     height: 100vh;
     width: 100vw;
+    margin: 0 auto;
+    overflow: scroll;
     background: linear-gradient(180deg, rgba(215, 189, 148, 0) 0%, rgba(215, 189, 148, 0.96) 100%);
     // background: lineear-gradient(to bottom, transparent, #D7BD94, #AC900D);
 `;
@@ -67,14 +69,14 @@ const PlantIndex = (props) => {
                 <Row>
                     <Col md="8">
                     <PlantTable 
-                    // plants={plants} 
                     plant={plant}
                     editUpdatePlant={editUpdatePlant}
                     updateOn={updateOn}
                     fetchDatabase={fetchDatabase} 
                     token={props.token} />
                     </Col>
-                    <Col md="4">
+                    <Col md="1"><br/></Col>
+                    <Col md="3">
                         <br />
                         <br />
                         <br />
@@ -82,8 +84,8 @@ const PlantIndex = (props) => {
                         <br />
                         <h3>Moon Phase : </h3>
                         <h4>Waning Crescent</h4>
-                        <hr />
-                        <hr />
+                        <hr style={{backgroundColor: '#FED701'}}/>
+                        <hr style={{backgroundColor: '#FED701'}}/>
                         <h5>Element : AIR</h5>
                         <h5>Plant-part : FLOWER</h5>
                         <h5>Soil : absorbant </h5>

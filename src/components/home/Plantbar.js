@@ -19,15 +19,12 @@ import APIURL from '../../helpers/environment'
 const useStyles = makeStyles({
     root: {
         backgroundColor: 'black',
-        flexGrow: 1 
+        // flexGrow: 1,
+        flex: 1
+        // float: 'left',
+
         // grows in same porportion as the window size
     }, 
-    title: {
-        flexGrow: 1,
-        zIndex: 1,
-        paddingRight: '85em',
-        color: '#E5E5E5'
-    },
     color: {
         backgroundColor: 'black'
     }
@@ -80,23 +77,23 @@ function handleAdd(plants) {
     return (
         <>
         <Router>
-            <Navbar  expand="md" className={classes.root}>
-                <NavbarBrand className={classes.title} href="/">The Garden</NavbarBrand>
-                <NavbarToggler onClick={toggle} />
-                <Collapse isOpen={isOpen} navbar>
-                    <Nav navbar>
+            <Navbar light expand="md" style={{backgroundColor:'#191919', borderBottom: '.1em groove #027A93', alignItems: 'stretch'}}>
+                <NavbarBrand style={{color: '#E5E5E5', fontFamily: 'Fira Sans'}} href="/">The Garden</NavbarBrand>
+                <NavbarToggler onClick={toggle} style={{backgroundColor: '#027A93'}}/>
+                <Collapse style={{paddingLeft: '65vw'}} isOpen={isOpen} navbar>
+                    <Nav  navbar>
                          <NavItem>
-                        <Button style={{borderRadius: '9px', backgroundColor: '#027A93', opacity: '0.85'}}><Link to="/" style={{color: '#E5E5E5'}}>Home Page</Link></Button>
+                        <Button style={{borderRadius: '9px', backgroundColor: '#027A93', opacity: '0.85'}}><Link to="/" style={{color: '#E5E5E5', fontFamily: 'Roboto, sans-serif'}}>Home Page</Link></Button>
                         </NavItem>
                         <NavItem>
-                        <Button style={{borderRadius: '9px', backgroundColor: '#027A93', opacity: '0.85'}}><Link to="/trefleapp" style={{color: '#E5E5E5'}}>Find Plants</Link></Button>
+                        <Button style={{borderRadius: '9px', backgroundColor: '#027A93', opacity: '0.85'}}><Link to="/trefleapp" style={{color: '#E5E5E5', fontFamily: 'Roboto, sans-serif'}}>Find Plants</Link></Button>
                         </NavItem>
                         <NavItem>
-                        <Button style={{borderRadius: '9px', backgroundColor: '#027A93', opacity: '0.85'}}><Link to="/plantindex" style={{color: '#E5E5E5'}}>Your Plants</Link></Button>
+                        <Button style={{borderRadius: '9px', backgroundColor: '#027A93', opacity: '0.85'}}><Link to="/plantindex" style={{color: '#E5E5E5', fontFamily: 'Roboto, sans-serif'}}>Your Plants</Link></Button>
                         </NavItem>
                         {/* ADD A PAGE FOR MOON PLANTING GUIDE !!!  */}
                         <NavItem>
-                            <Button onClick={props.clearToken} style={{borderRadius: '9px', backgroundColor: '#027A93', color: '#E5E5E5', opacity: '0.85'}}>Logout</Button>
+                            <Button onClick={props.clearToken} style={{borderRadius: '9px', backgroundColor: '#027A93', color: '#E5E5E5', opacity: '0.85', fontFamily: 'Roboto, sans-serif'}}>Logout User</Button>
                         </NavItem>
                         
                     </Nav>

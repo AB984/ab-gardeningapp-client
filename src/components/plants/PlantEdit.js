@@ -25,9 +25,9 @@ const PlantEdit = (props) => {
     }
 
     return (
-        <Modal isOpen={true}>
-            <ModalHeader>Edit a Plant Entry</ModalHeader>
-            <ModalBody>
+        <Modal style={{textAlign: 'center'}} isOpen={true}>
+            <ModalHeader style={{color: '#E5E5E5', fontFamily: 'Fira Sans', backgroundColor: '#6B6B6B'}}>Edit a Plant Entry</ModalHeader>
+            <ModalBody style={{boxShadow: 'inset 0px -2px 15px 1px #6B6B6B'}}>
                 <Form onSubmit={plantUpdate}>
                 <FormGroup>
                     <Label htmlFor="scientificName" />
@@ -42,7 +42,7 @@ const PlantEdit = (props) => {
                     <Label htmlFor="specifications" />
                     <Input name="specifications" value={specifications} onChange={(e) => setSpecifications(e.target.value)} />
                 </FormGroup>
-                    <Button type="submit">Update the Plant!</Button>
+                    <Button style={{borderRadius: '9px', backgroundColor: '#027A93', color: '#E5E5E5', opacity: '0.85'}} type="submit">Update the Plant!</Button>
                 </Form>
             </ModalBody>
         </Modal>

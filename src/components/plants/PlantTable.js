@@ -24,7 +24,7 @@ const PlantTable = (props) => {
                     <th scope="row">{plant.id}</th>
                     <td>{plant.scientific_name}</td>
                     <td>{plant.common_name}</td>
-                    <td>{plant.images}</td>
+                    {/* <td>{plant.images}</td> */}
                     <td>{plant.specifications}</td>
                     <td>
                         <Button color="#02C9DA" onClick={() => {props.editUpdatePlant(plant); props.updateOn() }} >Update</Button>
@@ -40,16 +40,19 @@ const PlantTable = (props) => {
         <>
             <br />
             <br />
-            <h3>Plants in your garden</h3>
-            <hr />
-            <Table striped>
+            <h3>Plants in Your Garden</h3>
+            <hr style={{backgroundColor: '#FED701'}}/>
+            <hr style={{backgroundColor: '#FED701'}}/>
+            <br />
+            <Table striped hover bordered>
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>Scientific Name</th>
                         <th>Common Name</th>
-                        <th>Images</th>
+                        {/* <th>Images</th> */}
                         <th>Specifications</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
