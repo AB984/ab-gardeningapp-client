@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Table, Button } from 'reactstrap';
 import APIURL from '../../helpers/environment'
 
 const PlantTable = (props) => {
-console.log(`PlantTable: `, props)
+    const {plant:plants} = props;
 
     const deletePlant = (plant) => {
         fetch(`${APIURL}/api/trefle/${plant.id}`, {
@@ -12,12 +12,13 @@ console.log(`PlantTable: `, props)
                 'Content-Type': 'application/json',
                 'Authorization': props.token
             })
-        }).then( () => props.fetchPlants())
+        }).then( () => props.fetchDatabase())
     }
 
 
     const plantMapper = () => {
-        return props.plants.map((plant, index) => {
+        // console.log(`plantMapper: `, plants)
+        return plants.map((plant, index) => {
             return (
                 <tr key={index}>
                     <th scope="row">{plant.id}</th>
@@ -26,8 +27,8 @@ console.log(`PlantTable: `, props)
                     <td>{plant.images}</td>
                     <td>{plant.specifications}</td>
                     <td>
-                        <Button color="warning" onClick={() => {props.editUpdatePlant(plant); props.updateOn() }} >Update</Button>
-                        <Button color="danger" onClick={() => {deletePlant(plant)}} >Delete</Button>
+                        <Button color="#02C9DA" onClick={() => {props.editUpdatePlant(plant); props.updateOn() }} >Update</Button>
+                        <Button color='#02C9DA' onClick={() => {deletePlant(plant)}} >Delete</Button>
                     </td>
 
                 </tr>
@@ -37,6 +38,8 @@ console.log(`PlantTable: `, props)
 
     return (
         <>
+            <br />
+            <br />
             <h3>Plants in your garden</h3>
             <hr />
             <Table striped>

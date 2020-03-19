@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import APIURL from '../../helpers/environment'
+// import APIURL from '../../helpers/environment'
 import AltImg from '../assets/alt-plant.jpg'
 
 
@@ -12,6 +12,9 @@ console.log(`TrefleAppDisplay: `, props)
 const Flex = styled.div`
   display: flex;
   flex-wrap: wrap;
+  flex: 1;
+  padding-left: 4em;
+  margin: 0 auto
 `;
 
 const Plant = styled.div`
@@ -23,6 +26,7 @@ const Plant = styled.div`
   justify-content: space-evenly;
   text-align: center;
   background: #027a93;
+  flex: 1
 `;
 
 const Thumbnail = styled.img`
@@ -53,35 +57,40 @@ const Button = styled.button`
 `;
 
 
-const [ scientificName, setScientificName] = useState('');
-const [ commonName, setCommonName ] = useState('')
-const [ images, setImages ] = useState([]);
-const [ specifications, setSpecifications ] = useState('');
+// const [ scientificName, setScientificName] = useState('');
+// const [ commonName, setCommonName ] = useState('')
+// const [ images, setImages ] = useState('');
+// const [ specifications, setSpecifications ] = useState('');
 
-// function addPlant(plant) {
-//     handleAdd(plant);
+// // function addPlant(plant) {
+// //     handleAdd(plant);
     
-// }
+// // }
 
-function handleAdd(plant) {
-    console.log(`HOME plant: `, plant)
-    fetch(`${APIURL}/api/trefle`, {
-        method: 'POST',
-        body: JSON.stringify( {scientific_name: plant.scientific_name, common_name: plant.common_name, specifications: specifications}),
-        // images: plant.images,
-        headers: new Headers({
-            'Content-Type': 'application/json',
-            'Authorization': props.token
-        })
-    }).then ( console.log(`this is TAD: handlePlant`), (res) => res.json())
-    .then ( (logData) => {
-        console.log(`HOME logData: `, logData);
-        setScientificName(logData.scientific_name);
-        setCommonName(logData.common_name);
-        // setImages(logData.images);
-        setSpecifications(logData.specifications);
-        // props.fetchPlants();
-    })}
+// function handleAdd(plants) {
+//     console.log(`TrefleAppDisp plant: `, plants)
+//     fetch(`${APIURL}/api/trefle`, {
+//         method: 'POST',
+//         // body: JSON.stringify( {scientific_name: plant.scientific_name, common_name: plant.common_name, specifications: specifications}),
+//         body: JSON.stringify( plants ),
+//         // images: plant.images,
+//         headers: new Headers({
+//             'Content-Type': 'application/json',
+//             'Authorization': props.token
+//         })
+//     }).then(console.log(JSON))
+//     .then ( (res) => res.json())
+//     .then(json => {
+//         console.log('JSON CONSOLE: ', json.owner)
+//         setScientificName(json.scientifc_name);
+//         setCommonName(json.common_name);
+//         // setImages(json.images);
+//         setSpecifications(json.specifications);
+//         console.log(scientificName)
+//         // props.fetchPlants();
+//       }) 
+//     .catch( err => console.log(err))
+//   }
 
 //       <div className="main">
 //           <div className="mainDiv">
@@ -96,7 +105,7 @@ function handleAdd(plant) {
   return (
     <>
     <Flex>
-      {props.result.plants.map((plant, key) => {
+      {props.plants.plants.map((plant, key) => {
       // if(plant.common_name !== '' && plant.complete_data === true)
       return (
         
@@ -106,7 +115,7 @@ function handleAdd(plant) {
               {plant.images.length === 0 ? (<Thumbnail src={AltImg}/>) : (<Thumbnail src={plant.images[0].url} />)}
               <ScientificName>{plant.scientific_name}</ScientificName>
               <CommonName >{plant.common_name}</CommonName>
-              <Button onClick={() => handleAdd(plant)}>ADD to GARDEN</Button>
+              <Button onClick={() => {props.handleAdd(plant); alert("Successfully Added!")}}>ADD to GARDEN</Button>
               <br />
               </Plant>
               <br />

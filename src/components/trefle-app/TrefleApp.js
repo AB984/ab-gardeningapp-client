@@ -1,11 +1,14 @@
 import React, {useState, useEffect } from 'react';
 import TrefleAppDisplay from './TrefleAppDisplay'
+import styled from 'styled-components';
 
-// TREFLE: If you need to perform client-side requests, you will have to request a client-side token from your backend, and get a JWT token in return. This token will be usable on the client side. This call need you secret access token, and the url of the website the client side requests will come from.
-// https://trefle.io/api/auth/claim?token=${key}&origin=${serverURL}
+const Background = styled.div`
+    height: 135vh;
+    width: 100vw;
+    background: linear-gradient(180deg, rgba(215, 189, 148, 0) 0%, rgba(215, 189, 148, 0.96) 100%);
+    // background: lineear-gradient(to bottom, transparent, #D7BD94, #AC900D);
+`;
 
-// const key = 'M0RnR3hmWTl1aFpCdk9hM2F1MzVEZz09';  // personal authority to access trefle data
-// const clientURL = 'http://localhost:3001/'
 
 const TrefleApp = (props) => {
     const [result, setResult] = useState([]);
@@ -14,40 +17,14 @@ const TrefleApp = (props) => {
     const [ plantToUpdate, setPlantToUpdate ] = useState({});
     const [ pageNumber, setPageNumber ] = useState(0);
 
-    console.log(`TREFLEAPP: `, props)
-    console.log(`TREFLEAPP RESULT PROP: `, result);
+    // console.log(`TREFLEAPP: `, props)
+    // console.log(`TREFLEAPP RESULT PROP: `, result);
 
-    // const fetcher = () => {
-    //     console.log("fetching")
-    //     fetch('http://localhost:3000/api/trefleauth', {
-    //         method: 'GET',
-    //         headers: new Headers({
-    //             'Content-Type': 'application/json',
-    //             'Authorization': props.token
-    //         })
-    //     })
-    //     .then( res => {
-    //         console.log(res)
-    //         if ( res.status !== 200 ) {
-    //             throw new Error( 'fetch error' );
-    //         } else return res.json();
-    //     })
-    //     .then(json => {
-    //         if ( json.length === 0 ) {
-    //             throw new Error('no results');
-    //         } else {
-    //             setResult(json.plants)
-    //             // console.log(json)
-    //         }})
-    //         .catch(err => console.log(err))
-    // }
 
     const handleSubmit = (event) => {
         event.preventDefault()
         setPageNumber(0);
         props.fetchPlants();
-        // setResult(props.plants);
-
     }
 
     const changePageNumber = (event, direction) => {
@@ -66,7 +43,7 @@ const TrefleApp = (props) => {
 
     const editUpdatePlant = (plant) => {
         setPlantToUpdate(plant);
-        console.log(plant);
+        // console.log(plant);
     }
     const updateOn = () => {
         setUpdateActive(true);
@@ -85,26 +62,27 @@ const TrefleApp = (props) => {
 
     return (
         <>
-        <div>
+        <Background>
             <div>
                 <form onSubmit={e => handleSubmit(e)}>
-                    <span>Enter a common name to search for a plant:</span>
+                    <span><h3 style={{marginTop: '3em'}}>Enter a common name to search for a plant:</h3></span>
                     <input 
+                    style={{marginTop: '3em'}}
                     type="text"
                     name="search"
                     onChange={e => {setSearch(e.target.value)}}
                     required/>
                     <br />
-                    <button>Submit Search</button>
+                    <button style={{marginTop: '2em', borderRadius: '9px', backgroundColor: '#027A93', opacity: '0.7', color: '#E5E5E5'}}>Submit Search</button>
                     <hr />
                     <br />
                 </form>
                 <br />
-                {search === "" ? null : (<div class="spinner-grow" role="status"><span class="sr-only">Loading...</span></div>)}
-                {props.plants.length === 0 ?  null : (<TrefleAppDisplay  result={props.plants} changePageNumber={changePageNumber} /> )}
+                {props.plants.length === 0 ?  null : (<TrefleAppDisplay  token={props.token} plants={props.plants} handleAdd={props.handleAdd} changePageNumber={changePageNumber} /> )}
+                {search === "" ? null : (<div className="spinner-grow" role="status"><span className="sr-only">Loading...</span></div>)}
                     
             </div>
-        </div>
+        </Background>
         </>
     )
 

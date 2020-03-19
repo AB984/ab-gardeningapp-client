@@ -37,7 +37,7 @@ const Home = (props) => {
                 throw new Error('no results');
             } else {
             setPlants(plantData);
-            console.log('plantData', plantData);
+            // console.log('plantData', plantData);
         }
     }).catch(err => console.log(err));
 

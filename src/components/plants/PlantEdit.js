@@ -19,7 +19,7 @@ const PlantEdit = (props) => {
                 'Authorization': props.token
             })
         }).then( (res) => {
-            props.fetchPlants();
+            props.fetchDatabase();
             props.updateOff();
         })
     }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Auth from './components/auth/Auth';
 import Home from './components/home/Home';
+import './App.css'
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   const updateToken = (newToken) => {
     localStorage.setItem('token', newToken);
     setSessionToken(newToken);
-    console.log(`APP SESSIONTOKEN: `, sessionToken);
+    // console.log(`APP SESSIONTOKEN: `, sessionToken);
   }
 
   const clearToken = () => {
@@ -28,13 +29,13 @@ function App() {
   const protectedViews = () => {
    if(sessionToken === localStorage.getItem('token')) {
       return (
-        <Home token={sessionToken}/>
+        <Home token={sessionToken} clearToken={clearToken}/>
     )}else{
       return(<Auth updateToken={updateToken} />)
     }
   }    
     return (
-      <div>
+      <div className="App">
         {protectedViews()}
       </div>
     );
