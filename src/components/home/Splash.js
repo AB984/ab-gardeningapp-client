@@ -4,7 +4,7 @@ import Phases from '../assets/header-moon-phases.jpeg';
 
 const Moon = styled.img`
     width: 100vw;
-    height: 33vh;
+    height: 37vh;
     display: block;
     margin: 0 auto;
     overflow: scroll;
@@ -36,8 +36,12 @@ const Splash = (props) => {
             <hr style={{backgroundColor: '#FED701'}}/>
             <hr style={{backgroundColor: '#FED701'}}/>
             <h3 style={{textAlign: 'center', marginTop: '3em'}}>We are glad you're here. </h3>
-            <h3 style={{textAlign: 'center', marginTop: '3em'}}>In this incredible application, you can create a customized table of your garden contents and keep track of tasks in time with the stages of the moon. </h3>
-            <h3 style={{textAlign: 'center', marginTop: '3em'}}>Click on Find Plants to get started! </h3>
+            <h3 style={{padding: '.1em 0', textAlign: 'center', marginTop: '3em'}}>In this incredible application, </h3>
+            <h3 style={{padding: '.1em 0', textAlign: 'center', marginTop: '3em'}}>you can create a customized table of your garden contents </h3>
+            <h3 style={{padding: '.1em 0', textAlign: 'center', marginTop: '3em'}}> and keep track of tasks in time with the stages of the moon. </h3>
+            <h3 style={{textAlign: 'center', marginTop: '3em'}}>Navigate to Find Plants to get started! </h3>
+            <br />
+            <br />
         </Background>
     )
 }

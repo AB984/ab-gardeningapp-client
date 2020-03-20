@@ -41,8 +41,6 @@ const Home = (props) => {
     return(
         <>
             <Plantbar token={props.token} clearToken={props.clearToken} fetchPlants={fetchPlants} plants={plants} />
-            {/* <Plantbar addPlant={addPlant} clearToken={props.clearToken} token={props.token}  fetchPlants={fetchPlants} plants={plants}/> */}
-            {/* <Splash token={props.token}/> */}
             <Footer />
         </>
 )

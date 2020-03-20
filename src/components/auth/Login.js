@@ -21,30 +21,9 @@ const Login = props => {
         })
     }
 
-    // function validateForm() {
-    //     var x = document.forms["loginForm"]["email"].value;
-    //     if (x == "") {
-    //         alert("Email must be filled out");
-    //         return false;
-    //     }
-    //     var y = document.forms["loginForm"]["password"].value;
-    //     if (y == "") {
-    //         alert("Password must be filled out");
-    //         return false;
-    //     }
-    // }
-
     return (
         <div>
             <h1 style={{color: '#6B6B6B'}}>Existing Accounts</h1>
-
-            {/* <AvForm>
-                <AvField name="email" label="Email" type="email" />
-                <AvField name="emailProp" label="Email (validate prop)" type="text" validate={{email: true}} />
-                
-                <Button color="primary">Submit</Button>
-            </AvForm> */}
-
             <Form name="loginForm" onSubmit={handleSubmit} >
                 <FormGroup>
                     <Label htmlFor="email">Email</Label>

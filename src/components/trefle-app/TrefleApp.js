@@ -1,6 +1,8 @@
 import React, {useState, useEffect } from 'react';
 import TrefleAppDisplay from './TrefleAppDisplay'
 import styled from 'styled-components';
+import ReactBlob from '../react-blob/ReactBlob';
+
 
 const Background = styled.div`
     height: 135vh;
@@ -83,6 +85,7 @@ const TrefleApp = (props) => {
                 <br />
                 {props.plants.length === 0 ?  null : (<TrefleAppDisplay  token={props.token} plants={props.plants} handleAdd={props.handleAdd} changePageNumber={changePageNumber} /> )}
                 {search === "" ? null : (<div className="spinner-grow" role="status"><span className="sr-only">Loading...</span></div>)}
+                <ReactBlob />
                     
             </div>
         </Background>

@@ -22,7 +22,7 @@ const Plant = styled.div`
   margin: 5px;
   top: 7px;
   width: 300px;
-  height: 200px;
+  height: 230px;
   border-radius: 9px;
   justify-content: space-evenly;
   text-align: center;
@@ -53,56 +53,13 @@ const Button = styled.button`
   color: #fed701;
   background-color: #027a93;
   border-radius: 9px;
-  border: 2px inset #191919;
+  :hover {
+      border: 2px inset #191919;
+      cursor: pointer;
+    };
   posistion: relative;
 `;
 
-
-// const [ scientificName, setScientificName] = useState('');
-// const [ commonName, setCommonName ] = useState('')
-// const [ images, setImages ] = useState('');
-// const [ specifications, setSpecifications ] = useState('');
-
-// // function addPlant(plant) {
-// //     handleAdd(plant);
-    
-// // }
-
-// function handleAdd(plants) {
-//     console.log(`TrefleAppDisp plant: `, plants)
-//     fetch(`${APIURL}/api/trefle`, {
-//         method: 'POST',
-//         // body: JSON.stringify( {scientific_name: plant.scientific_name, common_name: plant.common_name, specifications: specifications}),
-//         body: JSON.stringify( plants ),
-//         // images: plant.images,
-//         headers: new Headers({
-//             'Content-Type': 'application/json',
-//             'Authorization': props.token
-//         })
-//     }).then(console.log(JSON))
-//     .then ( (res) => res.json())
-//     .then(json => {
-//         console.log('JSON CONSOLE: ', json.owner)
-//         setScientificName(json.scientifc_name);
-//         setCommonName(json.common_name);
-//         // setImages(json.images);
-//         setSpecifications(json.specifications);
-//         console.log(scientificName)
-//         // props.fetchPlants();
-//       }) 
-//     .catch( err => console.log(err))
-//   }
-
-//       <div className="main">
-//           <div className="mainDiv">
-//               Stretch GOALS */}
-//               <input value={query} onChange={(e) => setQuery(e.target.value)} />
-//               <button onClick={fetcher} >Click for Plant Search</button>
-//               {plant.common_name !==  || plant.complete_data === true ? null : <TrefleAppDisplay result={result} /> }
-//           </div>
-//       </div>
-//   )
-// })
   return (
     <>
     <Flex>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
-// import PlantCreate from './PlantCreate';
 import PlantTable from './PlantTable';
 import PlantEdit from './PlantEdit';
 import APIURL from '../../helpers/environment'
